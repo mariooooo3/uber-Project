@@ -1,4 +1,3 @@
-
 package PaymentStrategy;
 
 import java.util.Random;

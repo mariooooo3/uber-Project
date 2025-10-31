@@ -1,4 +1,3 @@
-
 package Entitati;
 
 import RateUpSystem.RateUpSystem;
@@ -100,3 +99,4 @@ public class Account {
 
 
 }
+

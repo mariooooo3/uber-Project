@@ -1,27 +1,34 @@
 package Entitati;
 
 import PaymentStrategy.*;
+import Visitor.Visitable;
+import Visitor.Visitor;
 
 import java.util.Arrays;
 import java.util.Random;
 
-public class Rider extends Account {
-    String[] ridePreferences;
+public class Rider extends Account implements Visitable {
+    public int budget;
+    public String[] ridePreferences;
+    public double spendings = 0;
 
     public Rider() {
 
     }
 
-    public Rider(String username, String password, String lastName, String firstName, String[] ridePreferences) {
+    public Rider(String username, String password, String lastName, String firstName, String[] ridePreferences, int budget) {
         super(username, password, lastName, firstName);
         this.ridePreferences = ridePreferences;
+        this.budget = budget;
     }
 
-    public Rider(String[] ridePreferences) {
+    public Rider(String[] ridePreferences, int budget) {
         this.ridePreferences = ridePreferences;
+        this.budget = budget;
     }
 
     public void orderRide(Driver d) {
+        d.getRate();
         int contor = 0;
         for (int i = 0; i < ridePreferences.length; i++) {
             for (int j = 0; j < d.qualities.length; j++) {
@@ -78,8 +85,16 @@ public class Rider extends Account {
         }
         pay.pay(r);
 
+    }
 
+    @Override
+    public void accept(Visitor v)
+    {
+        v.visit(this);
     }
 
 
 }
+
+
+

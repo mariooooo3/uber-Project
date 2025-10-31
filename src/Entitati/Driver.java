@@ -1,11 +1,15 @@
-
 package Entitati;
 
-public class Driver extends Account {
+import Visitor.Visitable;
+import Visitor.Visitor;
+import Rides.Rides;
+
+public class Driver extends Account implements Visitable {
     public int experience;
     public String[] qualities;
     public boolean isAvailable;
     public String carModel;
+    public double earnings = 0;
 
     public Driver() {
 
@@ -29,9 +33,9 @@ public class Driver extends Account {
     public void acceptRide(Rider r) {
         r.getRate();
         if (this.isAvailable && r.rating > 3.6){
-            System.out.println("Soferul " + firstName + " " + lastName + " cu masina marca:"
+            System.out.println("Soferul " + firstName + " " + lastName + " cu masinca marca:"
                     + carModel + " a acceptat cursa calatorului: " + r.firstName + " " + r.lastName);
-            r.getPaymentMethod(r);}
+        r.getPaymentMethod(r);}
 
         else
             declineRide(r);
@@ -40,7 +44,7 @@ public class Driver extends Account {
     public void declineRide(Rider r) {
         r.getRate();
         if (!this.isAvailable && r.rating < 3.6)
-            System.out.println("Soferul " + firstName + " " + lastName + " cu masina marca:"
+            System.out.println("Soferul " + firstName + " " + lastName + " cu masinca marca:"
                     + carModel + " a refuzat cursa calatorului: " + r.firstName + " " + r.lastName);
     }
 
@@ -55,5 +59,13 @@ public class Driver extends Account {
         super.getRate();
         System.out.printf("Rating-ul soferului %s %s este: %.2f/5%n", this.firstName, this.lastName, this.rating);
     }
+
+    @Override
+    public void accept(Visitor v)
+    {
+        v.visit(this);
+    }
+
+
 
 }

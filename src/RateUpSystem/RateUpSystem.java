@@ -1,4 +1,3 @@
-
 package RateUpSystem;
 
 public class RateUpSystem {
