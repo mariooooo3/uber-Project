@@ -71,12 +71,12 @@ public class Account {
 
     public float RateUp() {
         Random rand = new Random();
-        int r1 = rand.nextInt(5-2)+3;
-        int r2 = rand.nextInt(5-2)+3;
-        int r3 = rand.nextInt(5-2)+3;
-        int r4 = rand.nextInt(5-2)+3;
-        int r5 = rand.nextInt(5-2)+3;
-        int r6 = rand.nextInt(5-2)+3;
+        int r1 = rand.nextInt(5 - 2) + 3;
+        int r2 = rand.nextInt(5 - 2) + 3;
+        int r3 = rand.nextInt(5 - 2) + 3;
+        int r4 = rand.nextInt(5 - 2) + 3;
+        int r5 = rand.nextInt(5 - 2) + 3;
+        int r6 = rand.nextInt(5 - 2) + 3;
 
 
         RateUpSystem rateUpSystem = new RateUpSystem.RateBuilder()
@@ -92,8 +92,7 @@ public class Account {
 
     }
 
-    public void getRate()
-    {
+    public void getRate() {
         this.rating = RateUp();
     }
 

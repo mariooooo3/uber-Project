@@ -10,14 +10,12 @@ public class Regular extends Rides {
     public boolean airConditioner;
     public int waitTime;
 
-    public Regular()
-    {
+    public Regular() {
         this.init();
     }
 
     public Regular(boolean preferedMusic, boolean airConditioner, int waitTime,
-                   double price, double basePrice, int avgSpeed)
-    {
+                   double price, double basePrice, int avgSpeed) {
         this.preferedMusic = preferedMusic;
         this.airConditioner = airConditioner;
         this.waitTime = waitTime;
@@ -62,7 +60,7 @@ public class Regular extends Rides {
     }
 
     public double calculatePrice() {
-        if(addComfortFee() > 0)
+        if (addComfortFee() > 0)
             System.out.println("Se aplica regular fee");
         else
             System.out.println("NU se aplica regular fee");
@@ -71,8 +69,7 @@ public class Regular extends Rides {
         return pr;
     }
 
-    public void init()
-    {
+    public void init() {
         Random rand = new Random();
         this.airConditioner = rand.nextBoolean();
         this.preferedMusic = rand.nextBoolean();
@@ -84,8 +81,7 @@ public class Regular extends Rides {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return super.toString() + ", iar informatiile cursei sunt:" + calculateDistance() + " km distanta parcursa," +
                 " intr un interval de " + calculateTime() + " min,";
     }

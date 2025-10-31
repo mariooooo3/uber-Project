@@ -9,13 +9,11 @@ public class Economic extends Rides {
     public int ecoDiscount;
     public boolean shareOption;
 
-    public Economic()
-    {
+    public Economic() {
         this.init();
     }
 
-    public Economic(int ecoDiscount, boolean shareOption, double price, double basePrice, int avgSpeed)
-    {
+    public Economic(int ecoDiscount, boolean shareOption, double price, double basePrice, int avgSpeed) {
         this.ecoDiscount = ecoDiscount;
         this.shareOption = shareOption;
         this.price = price;
@@ -53,8 +51,7 @@ public class Economic extends Rides {
         return pr;
     }
 
-    public void init()
-    {
+    public void init() {
         Random rand = new Random();
         this.ecoDiscount = rand.nextInt(10) + 10;
         this.shareOption = rand.nextBoolean();
@@ -64,8 +61,7 @@ public class Economic extends Rides {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return super.toString() + ", iar informatiile cursei sunt:" + calculateDistance() + " km distanta parcursa," +
                 " intr un interval de " + calculateTime() + " min,";
     }

@@ -32,12 +32,11 @@ public class Driver extends Account implements Visitable {
 
     public void acceptRide(Rider r) {
         r.getRate();
-        if (this.isAvailable && r.rating > 3.6){
+        if (this.isAvailable && r.rating > 3.6) {
             System.out.println("Soferul " + firstName + " " + lastName + " cu masinca marca:"
                     + carModel + " a acceptat cursa calatorului: " + r.firstName + " " + r.lastName);
-        r.getPaymentMethod(r);}
-
-        else
+            r.getPaymentMethod(r);
+        } else
             declineRide(r);
     }
 
@@ -61,11 +60,9 @@ public class Driver extends Account implements Visitable {
     }
 
     @Override
-    public void accept(Visitor v)
-    {
+    public void accept(Visitor v) {
         v.visit(this);
     }
-
 
 
 }

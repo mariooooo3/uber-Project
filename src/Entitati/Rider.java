@@ -44,7 +44,7 @@ public class Rider extends Account implements Visitable {
 
     public void cancelOrder(Driver d) {
         d.getRate();
-        if(d.rating < 3.6)
+        if (d.rating < 3.6)
             System.out.println("Calatorul " + this.firstName + " " + this.lastName +
                     " a refuzat cursa soferului " + d.firstName + " " + d.lastName);
     }
@@ -88,8 +88,7 @@ public class Rider extends Account implements Visitable {
     }
 
     @Override
-    public void accept(Visitor v)
-    {
+    public void accept(Visitor v) {
         v.visit(this);
     }
 

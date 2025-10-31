@@ -12,14 +12,12 @@ public class Comfort extends Rides {
     public boolean snaks;
     public boolean sunVisor;
 
-    public Comfort()
-    {
+    public Comfort() {
         this.init();
     }
 
     public Comfort(boolean priorityDiver, boolean wifi, boolean drinks, boolean snaks,
-                   boolean sunVisor, double price, double basePrice, int avgSpeed)
-    {
+                   boolean sunVisor, double price, double basePrice, int avgSpeed) {
         this.priorityDiver = priorityDiver;
         this.wifi = wifi;
         this.drinks = drinks;
@@ -77,7 +75,7 @@ public class Comfort extends Rides {
     }
 
     public double calculatePrice() {
-        if(addLuxuryFee() > 0)
+        if (addLuxuryFee() > 0)
             System.out.println("Se aplica luxury fee");
         else
             System.out.println("NU se aplica luxury fee");
@@ -87,8 +85,7 @@ public class Comfort extends Rides {
 
     }
 
-    public void init()
-    {
+    public void init() {
         Random rand = new Random();
         this.priorityDiver = rand.nextBoolean();
         this.wifi = rand.nextBoolean();
@@ -101,8 +98,7 @@ public class Comfort extends Rides {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return super.toString() + ", iar informatiile cursei sunt:" + calculateDistance() + " km distanta parcursa," +
                 " intr un interval de " + calculateTime() + " min,";
     }

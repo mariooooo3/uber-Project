@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class StatisticsVisitor implements Visitor {
     public void visit(Driver d) {
         System.out.println("Soferul " + d.firstName + " " + d.lastName + " are urmatoarele calitati:"
-        + Arrays.toString(d.qualities) + ", o masina marca:" + d.carModel + " si " + d.experience + " ani de experienta");
+                + Arrays.toString(d.qualities) + ", o masina marca:" + d.carModel + " si " + d.experience + " ani de experienta");
     }
 
     public void visit(Rider r) {

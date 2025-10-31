@@ -63,23 +63,22 @@ public abstract class Rides {
             ridePrice = ride.calculatePrice();
             d.earnings += ridePrice;
             r.spendings += ridePrice;
-            System.out.println((Comfort)ride + " pretul este de: " + ridePrice);
+            System.out.println((Comfort) ride + " pretul este de: " + ridePrice);
         } else if (r.budget <= 150 && r.budget >= 100) {
             ride = new Regular();
             r.orderRide(d);
             ridePrice = ride.calculatePrice();
             d.earnings += ridePrice;
             r.spendings += ridePrice;
-            System.out.println((Regular)ride + " pretul este de: " + ridePrice);
-        } else if(r.budget < 100 && r.budget >= 30) {
+            System.out.println((Regular) ride + " pretul este de: " + ridePrice);
+        } else if (r.budget < 100 && r.budget >= 30) {
             ride = new Economic();
             r.orderRide(d);
             ridePrice = ride.calculatePrice();
             d.earnings += ridePrice;
             r.spendings += ridePrice;
-            System.out.println((Economic)ride + " pretul este de: " + ridePrice);
-        }
-        else
+            System.out.println((Economic) ride + " pretul este de: " + ridePrice);
+        } else
             System.out.println("Fonduri insufciente");
 
 
@@ -88,7 +87,6 @@ public abstract class Rides {
     public String toString() {
         return ("Cursa este de tipul " + getClass());
     }
-
 
 
 }
