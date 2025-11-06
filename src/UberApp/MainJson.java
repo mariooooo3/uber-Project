@@ -60,8 +60,8 @@ public class MainJson {
                 driversArr.add(driver);
             }
 
-            for(Rider rider : ridersArr) {
-                for(Driver driver : driversArr) {
+            for (Rider rider : ridersArr) {
+                for (Driver driver : driversArr) {
                     Rides.chooseRide(rider, driver);
                     rider.accept(financial);
                     driver.accept(financial);
