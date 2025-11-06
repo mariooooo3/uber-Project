@@ -30,6 +30,16 @@ public class Driver extends Account implements Visitable, RidesObserver {
         contor++;
     }
 
+    public Driver(String username, String password, String lastName,
+                  String firstName, int experience, String[] qualities, boolean isAvailable, String carModel) {
+        super(username, password, lastName, firstName);
+        this.experience = experience;
+        this.qualities = qualities;
+        this.isAvailable = isAvailable;
+        this.carModel = carModel;
+        contor++;
+    }
+
     public Driver(int experience, String[] qualities, boolean isAvailable, String carModel) {
         this.experience = experience;
         this.qualities = qualities;

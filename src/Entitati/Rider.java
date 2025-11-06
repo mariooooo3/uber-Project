@@ -22,7 +22,8 @@ public class Rider extends Account implements Visitable, RidesObserver {
         ct++;
     }
 
-    public Rider(String username, String password, String lastName, String firstName, String[] ridePreferences, int budget) {
+    public Rider(String username, String password, String lastName, String firstName,
+                 String[] ridePreferences, int budget) {
         super(username, password, lastName, firstName);
         this.ridePreferences = ridePreferences;
         this.budget = budget;
