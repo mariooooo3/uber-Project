@@ -37,7 +37,17 @@ public class Account {
             System.out.println("Parola nu a putut fi schimbata!");
     }
 
-    public void singUp() {
+    public void resetPassword(String newPassword) {
+        this.password = newPassword;
+        System.out.println("Parola schimbata cu succes!");
+    }
+
+    public void resetUsername(String newUsername) {
+        this.username = newUsername;
+        System.out.println("Username schimbat cu succes!");
+    }
+
+    public void signUp() {
         System.out.println("Sing Up:");
         System.out.println("Introduceti numele:");
         this.lastName = scanner.nextLine();
@@ -51,18 +61,37 @@ public class Account {
 
     }
 
-    public void singIn() {
+    public void signIn() {
         System.out.println("Sing In:");
         System.out.println("Introduceti un username:");
         if (this.username.equals(scanner.nextLine())) {
             System.out.println("Introduceti o parola:");
             if (this.password.equals(scanner.nextLine()))
-                System.out.println("Autentificare facuta cu succesd de catre utilizatorul:" + this.firstName + " " + this.lastName);
-            else
+                System.out.println("Autentificare facuta cu succes de catre utilizatorul:" + this.firstName + " " + this.lastName);
+            else {
                 System.out.println("Parola introdusa este gresita");
+                System.out.println("Daca vreti sa resetati parola apasati Y:");
+                if (scanner.nextLine().equals("Y")) {
+                    System.out.println("Introduceti noua parola");
+                    resetPassword(scanner.nextLine());
+                    signIn();
+                } else
+                    System.out.println("Autentificare esuata");
 
-        } else
+
+            }
+
+        } else {
             System.out.println("Numele de utilizator introdus este gresit");
+            System.out.println("Daca vreti sa resetati username-ul apasati Y:");
+            if (scanner.nextLine().equals("Y")) {
+                System.out.println("Introduceti noul username");
+                resetUsername(scanner.nextLine());
+                signIn();
+            } else
+                System.out.println("Autentificare esuata");
+
+        }
     }
 
     public String toString() {
@@ -92,10 +121,10 @@ public class Account {
 
     }
 
-    public void getRate() {
+    public float initRate() {
         this.rating = RateUp();
+        return this.rating;
     }
 
 
 }
-

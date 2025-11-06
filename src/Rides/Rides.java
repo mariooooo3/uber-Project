@@ -1,3 +1,4 @@
+
 package Rides;
 
 import Entitati.Driver;
@@ -59,27 +60,30 @@ public abstract class Rides {
         double ridePrice = 0;
         if (r.budget > 150) {
             ride = new Comfort();
-            r.orderRide(d);
-            ridePrice = ride.calculatePrice();
-            d.earnings += ridePrice;
-            r.spendings += ridePrice;
-            System.out.println((Comfort) ride + " pretul este de: " + ridePrice);
+            if (r.orderRide(d)) {
+                ridePrice = ride.calculatePrice();
+                d.earnings += ridePrice;
+                r.spendings += ridePrice;
+                System.out.println((Comfort) ride + " pretul este de: " + ridePrice);
+            }
         } else if (r.budget <= 150 && r.budget >= 100) {
             ride = new Regular();
-            r.orderRide(d);
-            ridePrice = ride.calculatePrice();
-            d.earnings += ridePrice;
-            r.spendings += ridePrice;
-            System.out.println((Regular) ride + " pretul este de: " + ridePrice);
+            if (r.orderRide(d)) {
+                ridePrice = ride.calculatePrice();
+                d.earnings += ridePrice;
+                r.spendings += ridePrice;
+                System.out.println((Regular) ride + " pretul este de: " + ridePrice);
+            }
         } else if (r.budget < 100 && r.budget >= 30) {
             ride = new Economic();
-            r.orderRide(d);
-            ridePrice = ride.calculatePrice();
-            d.earnings += ridePrice;
-            r.spendings += ridePrice;
-            System.out.println((Economic) ride + " pretul este de: " + ridePrice);
+            if (r.orderRide(d)) {
+                ridePrice = ride.calculatePrice();
+                d.earnings += ridePrice;
+                r.spendings += ridePrice;
+                System.out.println((Economic) ride + " pretul este de: " + ridePrice);
+            }
         } else
-            System.out.println("Fonduri insufciente");
+            System.out.println("Fonduri insufciente pentru a comanda o cursa");
 
 
     }

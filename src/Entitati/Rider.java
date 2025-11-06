@@ -1,33 +1,41 @@
+
 package Entitati;
 
 import PaymentStrategy.*;
 import Visitor.Visitable;
 import Visitor.Visitor;
+import Observer.RidesObserver;
 
 import java.util.Arrays;
 import java.util.Random;
 
-public class Rider extends Account implements Visitable {
+import static Entitati.Driver.contor;
+
+public class Rider extends Account implements Visitable, RidesObserver {
     public int budget;
     public String[] ridePreferences;
     public double spendings = 0;
+    public static int ct = 0;
+    float rating = initRate();
 
     public Rider() {
-
+        ct++;
     }
 
     public Rider(String username, String password, String lastName, String firstName, String[] ridePreferences, int budget) {
         super(username, password, lastName, firstName);
         this.ridePreferences = ridePreferences;
         this.budget = budget;
+        ct++;
     }
 
     public Rider(String[] ridePreferences, int budget) {
         this.ridePreferences = ridePreferences;
         this.budget = budget;
+        ct++;
     }
 
-    public void orderRide(Driver d) {
+    public boolean orderRide(Driver d) {
         d.getRate();
         int contor = 0;
         for (int i = 0; i < ridePreferences.length; i++) {
@@ -36,17 +44,19 @@ public class Rider extends Account implements Visitable {
                     contor++;
             }
         }
-        if (contor >= 2)
+        if (contor >= 2) {
             d.acceptRide(this);
-        else
+            return true;
+        } else {
             cancelOrder(d);
+            return false;
+        }
     }
 
     public void cancelOrder(Driver d) {
-        d.getRate();
-        if (d.rating < 3.6)
-            System.out.println("Calatorul " + this.firstName + " " + this.lastName +
-                    " a refuzat cursa soferului " + d.firstName + " " + d.lastName);
+        this.getRate();
+        System.out.println("Calatorul " + this.firstName + " " + this.lastName +
+                " a refuzat cursa soferului " + d.firstName + " " + d.lastName);
     }
 
     @Override
@@ -54,9 +64,7 @@ public class Rider extends Account implements Visitable {
         return super.toString() + "de tipul rider, avand urmatoarele preferinte: " + Arrays.toString(this.ridePreferences);
     }
 
-    @Override
     public void getRate() {
-        super.getRate();
         System.out.printf("Rating-ul calatorului %s %s este: %.2f/5%n", this.firstName, this.lastName, this.rating);
 
     }
@@ -92,8 +100,11 @@ public class Rider extends Account implements Visitable {
         v.visit(this);
     }
 
+    @Override
+    public void update() {
+        System.out.println("Calatorul " + this.firstName + " " + this.lastName +
+                " a fost notifcat ca sunt: " + contor + " soferi in zona");
+    }
+
 
 }
-
-
-

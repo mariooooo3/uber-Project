@@ -1,18 +1,24 @@
+
 package Entitati;
 
+import Observer.RidesObserver;
 import Visitor.Visitable;
 import Visitor.Visitor;
 import Rides.Rides;
 
-public class Driver extends Account implements Visitable {
+import static Entitati.Rider.ct;
+
+public class Driver extends Account implements Visitable, RidesObserver {
     public int experience;
     public String[] qualities;
     public boolean isAvailable;
     public String carModel;
     public double earnings = 0;
+    public static int contor = 0;
+    float rating = initRate();
 
     public Driver() {
-
+        contor++;
     }
 
     public Driver(String username, String password, String lastName,
@@ -21,6 +27,7 @@ public class Driver extends Account implements Visitable {
         this.experience = experience;
         this.qualities = qualities;
         this.isAvailable = isAvailable;
+        contor++;
     }
 
     public Driver(int experience, String[] qualities, boolean isAvailable, String carModel) {
@@ -28,6 +35,7 @@ public class Driver extends Account implements Visitable {
         this.qualities = qualities;
         this.isAvailable = isAvailable;
         this.carModel = carModel;
+        contor++;
     }
 
     public void acceptRide(Rider r) {
@@ -53,15 +61,21 @@ public class Driver extends Account implements Visitable {
                 this.experience + " ani de experiemta si o masina marca: " + this.carModel;
     }
 
-    @Override
+
     public void getRate() {
-        super.getRate();
+
         System.out.printf("Rating-ul soferului %s %s este: %.2f/5%n", this.firstName, this.lastName, this.rating);
     }
 
     @Override
     public void accept(Visitor v) {
         v.visit(this);
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Soferul " + this.firstName + " " + this.lastName
+                + " a fost notificat ca sunt: " + ct + " clienti in zona");
     }
 
 

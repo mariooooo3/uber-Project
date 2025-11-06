@@ -59,6 +59,7 @@ public class Regular extends Rides {
 
     }
 
+    @Override
     public double calculatePrice() {
         if (addComfortFee() > 0)
             System.out.println("Se aplica regular fee");

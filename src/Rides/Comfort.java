@@ -74,6 +74,7 @@ public class Comfort extends Rides {
         return luxuryFee;
     }
 
+    @Override
     public double calculatePrice() {
         if (addLuxuryFee() > 0)
             System.out.println("Se aplica luxury fee");

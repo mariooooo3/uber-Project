@@ -44,6 +44,7 @@ public class Economic extends Rides {
         return red;
     }
 
+    @Override
     public double calculatePrice() {
         double pr = this.basePrice + (this.price * calculateDistance());
         pr = pr - applyDiscount();

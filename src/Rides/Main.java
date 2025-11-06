@@ -1,9 +1,12 @@
+
 package Rides;
 
 import Entitati.Driver;
 import Entitati.Rider;
 import Visitor.FinancialStatsVisitor;
 import Visitor.StatisticsVisitor;
+
+import static Entitati.Driver.contor;
 
 public class Main {
     public static void main(String[] args) {
