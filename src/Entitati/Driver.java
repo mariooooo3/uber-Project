@@ -6,6 +6,8 @@ import Visitor.Visitable;
 import Visitor.Visitor;
 import Rides.Rides;
 
+import static UberApp.Constants.*;
+
 import static Entitati.Rider.ct;
 
 public class Driver extends Account implements Visitable, RidesObserver {
@@ -50,7 +52,7 @@ public class Driver extends Account implements Visitable, RidesObserver {
 
     public void acceptRide(Rider r) {
         r.getRate();
-        if (this.isAvailable && r.rating > 3.6) {
+        if (this.isAvailable && r.rating > MIN_ACCEPTING_RATE) {
             System.out.println("Soferul " + firstName + " " + lastName + " cu masinca marca:"
                     + carModel + " a acceptat cursa calatorului: " + r.firstName + " " + r.lastName);
             r.getPaymentMethod(r);
@@ -60,7 +62,7 @@ public class Driver extends Account implements Visitable, RidesObserver {
 
     public void declineRide(Rider r) {
         r.getRate();
-        if (!this.isAvailable && r.rating < 3.6)
+        if (!this.isAvailable && r.rating < MIN_ACCEPTING_RATE)
             System.out.println("Soferul " + firstName + " " + lastName + " cu masinca marca:"
                     + carModel + " a refuzat cursa calatorului: " + r.firstName + " " + r.lastName);
     }

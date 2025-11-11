@@ -2,6 +2,8 @@ package Entitati;
 
 import RateUpSystem.RateUpSystem;
 
+import static UberApp.Constants.*;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -100,12 +102,12 @@ public class Account {
 
     public float RateUp() {
         Random rand = new Random();
-        int r1 = rand.nextInt(5 - 2) + 3;
-        int r2 = rand.nextInt(5 - 2) + 3;
-        int r3 = rand.nextInt(5 - 2) + 3;
-        int r4 = rand.nextInt(5 - 2) + 3;
-        int r5 = rand.nextInt(5 - 2) + 3;
-        int r6 = rand.nextInt(5 - 2) + 3;
+        int r1 = rand.nextInt(MAX_RATE - MIN_RATE) + AVARAGE_RATE;
+        int r2 = rand.nextInt(MAX_RATE - MIN_RATE) + AVARAGE_RATE;
+        int r3 = rand.nextInt(MAX_RATE - MIN_RATE) + AVARAGE_RATE;
+        int r4 = rand.nextInt(MAX_RATE - MIN_RATE) + AVARAGE_RATE;
+        int r5 = rand.nextInt(MAX_RATE - MIN_RATE) + AVARAGE_RATE;
+        int r6 = rand.nextInt(MAX_RATE - MIN_RATE) + AVARAGE_RATE;
 
 
         RateUpSystem rateUpSystem = new RateUpSystem.RateBuilder()

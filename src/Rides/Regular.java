@@ -3,6 +3,8 @@ package Rides;
 import Entitati.Driver;
 import Entitati.Rider;
 
+import static UberApp.Constants.*;
+
 import java.util.Random;
 
 public class Regular extends Rides {
@@ -37,14 +39,14 @@ public class Regular extends Rides {
 
     public int addComfortFee() {
         calculateComfort();
-        if (comfort == 3)
-            comfortFee = 15;
-        else if (comfort == 2)
-            comfortFee = 10;
-        else if (comfort == 1)
-            comfortFee = 5;
+        if (comfort == COMFORT_LEVEL3)
+            comfortFee = THREE_STAR_REGULAR_FEE;
+        else if (comfort == COMFORT_LEVEL2)
+            comfortFee = TWO_STAR_REGULAR_FEE;
+        else if (comfort == COMFORT_LEVEL1)
+            comfortFee = ONE_STAR_REGULAR_FEE;
         else
-            comfortFee = 0;
+            comfortFee = ZERO_STAR_REGULAR_FEE;
 
         return comfortFee;
     }
@@ -54,7 +56,7 @@ public class Regular extends Rides {
             comfort++;
         if (airConditioner)
             comfort++;
-        if (waitTime < 5)
+        if (waitTime < MAX_ACCEPTED_WAITING_TIME)
             comfort++;
 
     }
@@ -74,10 +76,10 @@ public class Regular extends Rides {
         Random rand = new Random();
         this.airConditioner = rand.nextBoolean();
         this.preferedMusic = rand.nextBoolean();
-        this.waitTime = rand.nextInt(10);
+        this.waitTime = rand.nextInt(WAITING_TIME_RANDOM_RANGE);
         this.price = 4;
         this.basePrice = 15;
-        this.avgSpeed = rand.nextInt(10) + 45;
+        this.avgSpeed = rand.nextInt(RIDE_SPEED_RANDOM_RANGE) + RIDE_SPEED_AVG;
 
     }
 

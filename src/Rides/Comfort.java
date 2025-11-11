@@ -3,6 +3,8 @@ package Rides;
 import Entitati.Driver;
 import Entitati.Rider;
 
+import static UberApp.Constants.*;
+
 import java.util.Random;
 
 public class Comfort extends Rides {
@@ -58,18 +60,18 @@ public class Comfort extends Rides {
 
     public double addLuxuryFee() {
         calculateLuxury();
-        if (luxury == 5)
-            luxuryFee = 30;
-        else if (luxury == 4)
-            luxuryFee = 25;
-        else if (luxury == 3)
-            luxuryFee = 20;
-        else if (luxury == 2)
-            luxuryFee = 15;
-        else if (luxury == 1)
-            luxuryFee = 10;
+        if (luxury == LUXURY_LEVEL5)
+            luxuryFee = FIVE_STAR_LUXURY_FEE;
+        else if (luxury == LUXURY_LEVEL4)
+            luxuryFee = FOUR_STAR_LUXURY_FEE;
+        else if (luxury == LUXURY_LEVEL3)
+            luxuryFee = THREE_STAR_LUXURY_FEE;
+        else if (luxury == LUXURY_LEVEL2)
+            luxuryFee = TWO_STAR_LUXURY_FEE;
+        else if (luxury == LUXURY_LEVEL1)
+            luxuryFee = ONE_STAR_LUXURY_FEE;
         else
-            luxuryFee = 0;
+            luxuryFee = ZERO_STAR_LUXURY_FEE;
 
         return luxuryFee;
     }
@@ -95,7 +97,7 @@ public class Comfort extends Rides {
         this.sunVisor = rand.nextBoolean();
         this.price = 6;
         this.basePrice = 30;
-        this.avgSpeed = rand.nextInt(10) + 45;
+        this.avgSpeed = rand.nextInt(RIDE_SPEED_RANDOM_RANGE) + RIDE_SPEED_AVG;
     }
 
     @Override

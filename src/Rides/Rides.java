@@ -6,6 +6,8 @@ import Entitati.Rider;
 
 import java.util.Random;
 
+import static UberApp.Constants.*;
+
 public abstract class Rides {
     Driver d;
     Rider r;
@@ -36,8 +38,8 @@ public abstract class Rides {
 
     public void stopRide() {
         Random rand = new Random();
-        int rideMin = 10 + rand.nextInt(15);
-        long rideNano = rideMin * 60L * 1_000_000_000;
+        int rideMin = RIDE_MIN_BASE_MINUTES + rand.nextInt(RIDE_DURATION_RANDOM_RANGE_MINUTES);
+        long rideNano = rideMin * SECONDS_IN_MINUTE * NANOS_IN_SECOND;
         this.stopTime = this.startTime + rideNano;
 
     }
@@ -46,11 +48,11 @@ public abstract class Rides {
         startRide();
         stopRide();
         long duration = this.stopTime - this.startTime;
-        return duration / (60L * 1_000_000_000);
+        return duration / (SECONDS_IN_MINUTE * NANOS_IN_SECOND);
     }
 
     public long calculateDistance() {
-        double hours = calculateTime() / 60.0;
+        double hours = calculateTime() / MINUTES_IN_HOUR;
         double distance = this.avgSpeed * hours;
         return Math.round(distance);
     }
@@ -58,7 +60,7 @@ public abstract class Rides {
     public static void chooseRide(Rider r, Driver d) {
         Rides ride;
         double ridePrice = 0;
-        if (r.budget > 150) {
+        if (r.budget > COMFORT_MIN_PRICE) {
             ride = new Comfort();
             if (r.orderRide(d)) {
                 ridePrice = ride.calculatePrice();
@@ -66,7 +68,7 @@ public abstract class Rides {
                 r.spendings += ridePrice;
                 System.out.println((Comfort) ride + " pretul este de: " + ridePrice);
             }
-        } else if (r.budget <= 150 && r.budget >= 100) {
+        } else if (r.budget <= REGULAR_MAX_PRICE && r.budget >= REGULAR_MIN_PRICE) {
             ride = new Regular();
             if (r.orderRide(d)) {
                 ridePrice = ride.calculatePrice();
@@ -74,7 +76,7 @@ public abstract class Rides {
                 r.spendings += ridePrice;
                 System.out.println((Regular) ride + " pretul este de: " + ridePrice);
             }
-        } else if (r.budget < 100 && r.budget >= 30) {
+        } else if (r.budget < ECONOMIC_MAX_PRICE && r.budget >= ECONOMIC_MIN_PRICE) {
             ride = new Economic();
             if (r.orderRide(d)) {
                 ridePrice = ride.calculatePrice();

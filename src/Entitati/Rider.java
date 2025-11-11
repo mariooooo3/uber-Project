@@ -9,6 +9,8 @@ import Observer.RidesObserver;
 import java.util.Arrays;
 import java.util.Random;
 
+import static UberApp.Constants.*;
+
 import static Entitati.Driver.contor;
 
 public class Rider extends Account implements Visitable, RidesObserver {
@@ -45,7 +47,7 @@ public class Rider extends Account implements Visitable, RidesObserver {
                     contor++;
             }
         }
-        if (contor >= 2) {
+        if (contor >= MIN_PREFERENCES_COUNTER) {
             d.acceptRide(this);
             return true;
         } else {

@@ -3,6 +3,8 @@ package Rides;
 import Entitati.Driver;
 import Entitati.Rider;
 
+import static UberApp.Constants.*;
+
 import java.util.Random;
 
 public class Economic extends Rides {
@@ -29,7 +31,7 @@ public class Economic extends Rides {
     }
 
     public int applyDiscount() {
-        return (ecoDiscount * 20) / 100;
+        return (ecoDiscount * ECO_DISCOUNT_PERCENTAGE) / 100;
     }
 
     public double shareRide() {
@@ -54,11 +56,11 @@ public class Economic extends Rides {
 
     public void init() {
         Random rand = new Random();
-        this.ecoDiscount = rand.nextInt(10) + 10;
+        this.ecoDiscount = rand.nextInt(ECO_DISCOUNT_RANDOM_RANGE) + ECO_DISCOUNT_AVG;
         this.shareOption = rand.nextBoolean();
         this.price = 2;
         this.basePrice = 10;
-        this.avgSpeed = rand.nextInt(10) + 45;
+        this.avgSpeed = rand.nextInt(RIDE_SPEED_RANDOM_RANGE) + RIDE_SPEED_AVG;
     }
 
     @Override
