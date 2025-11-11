@@ -44,6 +44,7 @@ notificări în timp real.
 - [MainJson.java](src/UberApp/MainJson.java) – Citirea riderilor și șoferilor din JSON și rularea curselelor
 - [Uber.java](src/UberApp/Uber.java) – Clasa Uber, implementează Observer pentru notificări
 - [Json.json](src/UberApp/Json.json) – Fișier JSON cu datele riderilor și șoferilor
+- [Constants.java](src/UberApp/Constants.java) - Fisier cu constantele folosite in clase
 
 ### 7. `src/Visitor` - Pattern Visitor
 
