@@ -41,6 +41,13 @@ public final class Constants {
     public static final int LUXURY_LEVEL3 = 3;
     public static final int LUXURY_LEVEL2 = 2;
     public static final int LUXURY_LEVEL1 = 1;
+    public static final int SHARE_RIDE_DISCOUNT = 10;
+    public static final int COMFORT_PRICE_PER_KM = 6;
+    public static final int COMFORT_BASE_PRICE = 30;
+    public static final int ECONOMIC_PRICE_PER_KM = 2;
+    public static final int ECONOMIC_BASE_PRICE = 10;
+    public static final int REGULAR_PRICE_PER_KM = 4;
+    public static final int REGULAR_BASE_PRICE = 15;
 
 
 }

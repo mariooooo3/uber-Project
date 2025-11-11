@@ -77,8 +77,8 @@ public class Regular extends Rides {
         this.airConditioner = rand.nextBoolean();
         this.preferedMusic = rand.nextBoolean();
         this.waitTime = rand.nextInt(WAITING_TIME_RANDOM_RANGE);
-        this.price = 4;
-        this.basePrice = 15;
+        this.price = REGULAR_PRICE_PER_KM;
+        this.basePrice = REGULAR_BASE_PRICE;
         this.avgSpeed = rand.nextInt(RIDE_SPEED_RANDOM_RANGE) + RIDE_SPEED_AVG;
 
     }

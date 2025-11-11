@@ -95,8 +95,8 @@ public class Comfort extends Rides {
         this.drinks = rand.nextBoolean();
         this.snaks = rand.nextBoolean();
         this.sunVisor = rand.nextBoolean();
-        this.price = 6;
-        this.basePrice = 30;
+        this.price = COMFORT_PRICE_PER_KM;
+        this.basePrice = COMFORT_BASE_PRICE;
         this.avgSpeed = rand.nextInt(RIDE_SPEED_RANDOM_RANGE) + RIDE_SPEED_AVG;
     }
 

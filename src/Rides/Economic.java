@@ -38,7 +38,7 @@ public class Economic extends Rides {
         int red;
         if (shareOption) {
             System.out.println("Se aplica reducere de share pentru clientul");
-            red = 10;
+            red = SHARE_RIDE_DISCOUNT;
         } else {
             System.out.println("Nu se aplica reducerea share");
             red = 0;
@@ -58,8 +58,8 @@ public class Economic extends Rides {
         Random rand = new Random();
         this.ecoDiscount = rand.nextInt(ECO_DISCOUNT_RANDOM_RANGE) + ECO_DISCOUNT_AVG;
         this.shareOption = rand.nextBoolean();
-        this.price = 2;
-        this.basePrice = 10;
+        this.price = ECONOMIC_PRICE_PER_KM;
+        this.basePrice = ECONOMIC_BASE_PRICE;
         this.avgSpeed = rand.nextInt(RIDE_SPEED_RANDOM_RANGE) + RIDE_SPEED_AVG;
     }
 
