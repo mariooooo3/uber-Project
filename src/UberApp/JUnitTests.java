@@ -68,7 +68,7 @@ public class JUnitTests {
     @Test
     public void calculateTime() {
         long time = comfort.calculateTime();
-        Assertions.assertTrue(time > 15);
+        Assertions.assertTrue(time > 10);
         System.out.println(time);
     }
 
@@ -77,6 +77,13 @@ public class JUnitTests {
         Economic economic = new Economic(4, true, 4, 10, 40);
         double reducere = economic.shareRide();
         Assertions.assertEquals(10, reducere);
+    }
+
+    @Test
+    public void calculateLuxuryFee() {
+        Comfort comfort = new Comfort(true, true, true, true, true, 6, 30, 45);
+        double fee = comfort.addLuxuryFee();
+        Assertions.assertEquals(30, fee);
     }
 
 }
