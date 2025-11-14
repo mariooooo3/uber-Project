@@ -50,7 +50,7 @@ public class Account {
     }
 
     public void signUp() {
-        System.out.println("Sing Up:");
+        System.out.println("Sign Up:");
         System.out.println("Introduceti numele:");
         this.lastName = scanner.nextLine();
         System.out.println("Introduceti prenumele:");
@@ -64,7 +64,7 @@ public class Account {
     }
 
     public void signIn() {
-        System.out.println("Sing In:");
+        System.out.println("Sign In:");
         System.out.println("Introduceti un username:");
         if (this.username.equals(scanner.nextLine())) {
             System.out.println("Introduceti o parola:");
