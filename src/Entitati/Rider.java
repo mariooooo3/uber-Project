@@ -1,6 +1,7 @@
 
 package Entitati;
 
+import Exceptions.*;
 import PaymentStrategy.*;
 import Visitor.Visitable;
 import Visitor.Visitor;
@@ -38,7 +39,8 @@ public class Rider extends Account implements Visitable, RidesObserver {
         ct++;
     }
 
-    public boolean orderRide(Driver d) {
+    public boolean orderRide(Driver d) throws RiderException, CreditCardException,
+            RevolutException, VoucherException, CashException {
         d.getRate();
         int contor = 0;
         for (int i = 0; i < ridePreferences.length; i++) {
@@ -72,7 +74,7 @@ public class Rider extends Account implements Visitable, RidesObserver {
 
     }
 
-    public void getPaymentMethod(Rider r) {
+    public void getPaymentMethod(Rider r) throws RiderException, CreditCardException, RevolutException, VoucherException, CashException {
         Random rand = new Random();
 
         int choice = rand.nextInt(4);
@@ -92,7 +94,7 @@ public class Rider extends Account implements Visitable, RidesObserver {
                 pay = new Revolut();
                 break;
             default:
-                throw new IllegalArgumentException("Invalid");
+                throw new RiderException("Exception: rider payment method invalid");
         }
         pay.pay(r);
 

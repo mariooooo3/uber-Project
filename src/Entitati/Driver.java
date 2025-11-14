@@ -1,6 +1,7 @@
 
 package Entitati;
 
+import Exceptions.*;
 import Observer.RidesObserver;
 import Visitor.Visitable;
 import Visitor.Visitor;
@@ -50,7 +51,8 @@ public class Driver extends Account implements Visitable, RidesObserver {
         contor++;
     }
 
-    public void acceptRide(Rider r) {
+    public void acceptRide(Rider r) throws RiderException, CreditCardException,
+            RevolutException, VoucherException, CashException {
         r.getRate();
         if (this.isAvailable && r.rating > MIN_ACCEPTING_RATE) {
             System.out.println("Soferul " + firstName + " " + lastName + " cu masinca marca:"

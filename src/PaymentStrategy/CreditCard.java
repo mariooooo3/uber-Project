@@ -2,6 +2,7 @@ package PaymentStrategy;
 
 import java.util.Random;
 
+import Exceptions.CreditCardException;
 import Entitati.Rider;
 
 public class CreditCard implements PaymentStrategy {
@@ -13,11 +14,11 @@ public class CreditCard implements PaymentStrategy {
         this.cardNo = cardNo;
     }
 
-    public CreditCard() {
+    public CreditCard() throws CreditCardException {
         this.init();
     }
 
-    public void init() {
+    public void init() throws CreditCardException {
         switch (choice) {
             case 0:
                 cardNo = 101;
@@ -32,7 +33,7 @@ public class CreditCard implements PaymentStrategy {
                 cardNo = 404;
                 break;
             default:
-                throw new IllegalArgumentException("Invalid");
+                throw new CreditCardException("Exception: credit card choice invalid");
         }
     }
 

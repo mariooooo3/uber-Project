@@ -2,6 +2,7 @@ package PaymentStrategy;
 
 import java.util.Random;
 
+import Exceptions.VoucherException;
 import Entitati.Rider;
 
 public class Voucher implements PaymentStrategy {
@@ -13,11 +14,11 @@ public class Voucher implements PaymentStrategy {
         this.voucherNo = voucherNo;
     }
 
-    public Voucher() {
+    public Voucher() throws VoucherException {
         this.init();
     }
 
-    public void init() {
+    public void init() throws VoucherException {
         switch (choice) {
             case 0:
                 voucherNo = 999;
@@ -32,7 +33,7 @@ public class Voucher implements PaymentStrategy {
                 voucherNo = 666;
                 break;
             default:
-                throw new IllegalArgumentException("Invalid");
+                throw new VoucherException("Exception: Voucher choice invalid");
         }
     }
 

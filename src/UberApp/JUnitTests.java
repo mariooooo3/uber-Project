@@ -2,6 +2,7 @@ package UberApp;
 
 import Entitati.Driver;
 import Entitati.Rider;
+import Exceptions.*;
 import Rides.*;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -20,7 +21,8 @@ public class JUnitTests {
 
 
     @Test
-    public void acceptRide() {
+    public void acceptRide() throws RiderException, CreditCardException,
+            RevolutException, VoucherException, CashException {
         boolean accepted = rider.orderRide(driver);
         Assertions.assertTrue(accepted);
     }

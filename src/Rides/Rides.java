@@ -3,6 +3,7 @@ package Rides;
 
 import Entitati.Driver;
 import Entitati.Rider;
+import Exceptions.*;
 
 import java.util.Random;
 
@@ -57,7 +58,8 @@ public abstract class Rides {
         return Math.round(distance);
     }
 
-    public static void chooseRide(Rider r, Driver d) {
+    public static void chooseRide(Rider r, Driver d) throws RiderException, CreditCardException,
+            RevolutException, VoucherException, CashException {
         Rides ride;
         double ridePrice = 0;
         if (r.budget > COMFORT_MIN_PRICE) {

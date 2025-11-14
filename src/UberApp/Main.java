@@ -3,6 +3,7 @@ package UberApp;
 
 import Entitati.Driver;
 import Entitati.Rider;
+import Exceptions.*;
 import Rides.Rides;
 import Visitor.FinancialStatsVisitor;
 import Visitor.StatisticsVisitor;
@@ -10,7 +11,8 @@ import Visitor.NotificationVisitor;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RiderException, CreditCardException,
+            RevolutException, VoucherException, CashException {
 
         FinancialStatsVisitor financial = new FinancialStatsVisitor();
         NotificationVisitor notification = new NotificationVisitor();

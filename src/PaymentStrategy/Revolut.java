@@ -3,6 +3,7 @@ package PaymentStrategy;
 import java.util.Random;
 
 import Entitati.Rider;
+import Exceptions.RevolutException;
 
 public class Revolut implements PaymentStrategy {
     public int revNo;
@@ -13,11 +14,11 @@ public class Revolut implements PaymentStrategy {
         this.revNo = revNo;
     }
 
-    public Revolut() {
+    public Revolut() throws RevolutException {
         this.init();
     }
 
-    public void init() {
+    public void init() throws RevolutException {
         switch (choice) {
             case 0:
                 revNo = 111;
@@ -32,7 +33,7 @@ public class Revolut implements PaymentStrategy {
                 revNo = 444;
                 break;
             default:
-                throw new IllegalArgumentException("Invalid");
+                throw new RevolutException("Exception: revolut choice invalid");
         }
     }
 

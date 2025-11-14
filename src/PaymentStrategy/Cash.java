@@ -3,6 +3,7 @@ package PaymentStrategy;
 import java.util.Random;
 
 import Entitati.Rider;
+import Exceptions.CashException;
 
 public class Cash implements PaymentStrategy {
     public String currency;
@@ -13,11 +14,11 @@ public class Cash implements PaymentStrategy {
         this.currency = currency;
     }
 
-    public Cash() {
+    public Cash() throws CashException {
         this.init();
     }
 
-    public void init() {
+    public void init() throws CashException {
         switch (choice) {
             case 0:
                 currency = "dolari";
@@ -32,7 +33,7 @@ public class Cash implements PaymentStrategy {
                 currency = "lire";
                 break;
             default:
-                throw new IllegalArgumentException("Invalid");
+                throw new CashException("Exception: cash choice invalid");
         }
     }
 
