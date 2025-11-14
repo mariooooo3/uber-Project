@@ -1,80 +1,80 @@
 # 🚗 UberApp – Proiect Java
 
-Acesta este un proiect Java care simulează un sistem Uber cu rideri, șoferi, diferite tipuri de curse, sisteme de plăți și module de statistici. Proiectul include implementarea a trei pattern-uri importante: **Observer**, **Strategy** și **Visitor**, precum și un sistem de rating numit **RateUp**.
+Acesta este un proiect Java care simulează un sistem Uber cu rideri, șoferi, diferite tipuri de curse, sisteme de plăți și module de statistici. Proiectul include implementarea pattern-urilor **Observer**, **Strategy**, **Visitor**, precum și un sistem de rating **RateUp**.
 
 ---
 
-## 📁 Structura proiectului
+## 📁 Structura proiectului (cu link-uri către fișiere)
 
-### 1. `src/Entitati` – Clase principale
-- `Account.java` – Clasa de bază pentru conturi (rideri și șoferi)
-- `Driver.java` – Reprezintă un șofer (calități, experiență, disponibilitate)
-- `Rider.java` – Reprezintă un rider (preferințe, buget)
-
----
-
-### 2. `src/Exceptions` – Gestionarea excepțiilor
-- `CashException.java` – Eroare la plata cash
-- `CreditCardException.java` – Eroare la plata cu card
-- `RevolutException.java` – Eroare la plata prin Revolut
-- `VoucherException.java` – Voucher invalid
-- `RiderException.java` – Validarea datelor riderilor
+### 1. [`src/Entitati`](src/Entitati)
+- [`Account.java`](src/Entitati/Account.java)
+- [`Driver.java`](src/Entitati/Driver.java)
+- [`Rider.java`](src/Entitati/Rider.java)
 
 ---
 
-### 3. `src/Observer` – Design Pattern Observer
-- `RidesObserver.java` – Interfață pentru observer
-- `Subject.java` – Interfață pentru subiect (Uber)
+### 2. [`src/Exceptions`](src/Exceptions)
+- [`CashException.java`](src/Exceptions/CashException.java)
+- [`CreditCardException.java`](src/Exceptions/CreditCardException.java)
+- [`RevolutException.java`](src/Exceptions/RevolutException.java)
+- [`VoucherException.java`](src/Exceptions/VoucherException.java)
+- [`RiderException.java`](src/Exceptions/RiderException.java)
 
 ---
 
-### 4. `src/PaymentStrategy` – Strategii de plată
-- `PaymentStrategy.java` – Interfața strategiei de plată
-- `Cash.java` – Plată cash
-- `CreditCard.java` – Plată cu cardul
-- `Revolut.java` – Plată prin Revolut
-- `Voucher.java` – Plată cu voucher
+### 3. [`src/Observer`](src/Observer)
+- [`RidesObserver.java`](src/Observer/RidesObserver.java)
+- [`Subject.java`](src/Observer/Subject.java)
 
 ---
 
-### 5. `src/RateUpSystem`
-- `RateUpSystem.java` – Sistem pentru evaluări și recompense
+### 4. [`src/PaymentStrategy`](src/PaymentStrategy)
+- [`PaymentStrategy.java`](src/PaymentStrategy/PaymentStrategy.java)
+- [`Cash.java`](src/PaymentStrategy/Cash.java)
+- [`CreditCard.java`](src/PaymentStrategy/CreditCard.java)
+- [`Revolut.java`](src/PaymentStrategy/Revolut.java)
+- [`Voucher.java`](src/PaymentStrategy/Voucher.java)
 
 ---
 
-### 6. `src/Rides` – Tipuri de curse
-- `Economic.java` – Cursa economică
-- `Comfort.java` – Cursa de tip confort
-- `Regular.java` – Cursa standard
-- `Rides.java` – Managementul curselor
+### 5. [`src/RateUpSystem`](src/RateUpSystem)
+- [`RateUpSystem.java`](src/RateUpSystem/RateUpSystem.java)
 
 ---
 
-### 7. `src/UberApp` – Aplicatia principală
-- `Main.java` – Punctul principal de intrare în aplicație
-- `MainJson.java` – Citește datele din JSON și rulează aplicația
-- `Uber.java` – Clasa Uber (implementează Subject din Observer)
-- `Constants.java` – Constante globale folosite în proiect
-- `JUnitTests.java` – Teste unitare pentru funcționalități
-- `Json.json` – Fișier JSON cu date pentru rideri și șoferi
+### 6. [`src/Rides`](src/Rides)
+- [`Economic.java`](src/Rides/Economic.java)
+- [`Comfort.java`](src/Rides/Comfort.java)
+- [`Regular.java`](src/Rides/Regular.java)
+- [`Rides.java`](src/Rides/Rides.java)
 
 ---
 
-### 8. `src/Visitor` – Design Pattern Visitor
-- `Visitor.java` – Interfața vizitatorului
-- `Visitable.java` – Interfață pentru elementele vizitabile
-- `StatisticsVisitor.java` – Statistici generale
-- `FinancialStatsVisitor.java` – Statistici financiare
-- `NotificationVisitor.java` – Notificări
+### 7. [`src/UberApp`](src/UberApp)
+- [`Main.java`](src/UberApp/Main.java)
+- [`MainJson.java`](src/UberApp/MainJson.java)
+- [`Uber.java`](src/UberApp/Uber.java)
+- [`Constants.java`](src/UberApp/Constants.java)
+- [`JUnitTests.java`](src/UberApp/JUnitTests.java)
+- [`Json.json`](src/UberApp/Json.json)
+
+---
+
+### 8. [`src/Visitor`](src/Visitor)
+- [`Visitor.java`](src/Visitor/Visitor.java)
+- [`Visitable.java`](src/Visitor/Visitable.java)
+- [`StatisticsVisitor.java`](src/Visitor/StatisticsVisitor.java)
+- [`FinancialStatsVisitor.java`](src/Visitor/FinancialStatsVisitor.java)
+- [`NotificationVisitor.java`](src/Visitor/NotificationVisitor.java)
 
 ---
 
 ## 📝 Descriere generală
 
-- Proiectul folosește **Observer** pentru notificări în timp real pentru rideri și șoferi.
-- Folosește **Strategy** pentru metodele de plată, selectate dinamic.
-- Folosește **Visitor** pentru statistici și rapoarte fără a modifica entitățile.
-- Include un sistem **RateUp** pentru evaluări și recompense.
-- `MainJson.java` permite rularea aplicației folosind date din fișierul `Json.json`.
+- **Observer** – notificări în timp real pentru rideri și șoferi
+- **Strategy** – selectarea metodei de plată în timpul rulării
+- **Visitor** – generare de statistici fără modificarea entităților
+- **RateUpSystem** – sistem de rating și recompense
+- **MainJson** – rulare pe baza datelor JSON
 
 ---
